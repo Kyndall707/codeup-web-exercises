@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RESIDENTIAL LEASE APPLICATION</title>
+</head>
+<body>
+<h2>RESIDENTIAL LEASE APPLICATION</h2>
+<hr>
+    <form method="POST" action="https://request-inspector.glitch.me?zipcode=78205">
+    Property Address <input type="text" name="address">
+        <br>
+        Anticipated:Move-in Date<select name="move_in_date">
+        <option value="jan">Jan</option>
+        <option value="feb">Feb</option>
+        <option value="mar">Mar</option>
+        <option value="apr">Apr</option>
+        <option value="may">May</option>
+        <option value="june">June</option>
+        <option value="july">July</option>
+        <option value="aug">Aug</option>
+        <option value="sept">Sept</option>
+        <option value="oct">Oct</option>
+        <option value="nov">Nov</option>
+        <option value="dec">Dec</option>
+    </select>
+        Monthly Rent:<select name="monthly_rent">
+        <option value="1,325">$1,325</option>
+    </select>
+        Security Deposit:<select name="security_deposit">
+        <option value="1,000">$1,000</option>
+    </select>
+        <br>
+        Applicant's was referred to Landlord by:<input type="radio" name="q1" value="real_estate_agent">Real estate agent
+        <input type="text" name="real_estate_agent">(<em>name</em>)
+        <input type="text" name="phone">(<em>phone</em>)
+        <br>
+        Applicant's name (<em>first,middle,last</em>)<input type="text" name="name">
+        <br>
+        Is there a co-applicant? <em>YES</em><input name="co-applicant?" value="true" type="checkbox">
+        <em>NO</em><input name="co-applicant" value="true" type="checkbox">
+        <em>if yes, co-applicant must submit a separate application.</em>
+        <br>
+        Applicant's former last name (maiden or married)<input type="text" name="last_name">
+    </form>
+</body>
+</html>
