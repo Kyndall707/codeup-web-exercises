@@ -1,0 +1,42 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+* {
+    padding: 5px;
+    margin: 7px;
+}
+
+.message {
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.message-error {
+    border: gainsboro;
+    background-color: lightpink;
+    color: darkred;
+}
+
+.message-success {
+    border: gainsboro;
+    background-color: #cbffcd;
+    color: forestgreen;
+}
+
+.message-warning {
+    border: gainsboro;
+    background-color: lightyellow;
+    color: goldenrod;
+}
+
+.message-informational {
+    border: gainsboro;
+    background-color: lightblue;
+    color: darkblue;
+}

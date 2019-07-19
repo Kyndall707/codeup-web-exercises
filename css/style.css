@@ -11,9 +11,10 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-ul{
+ul {
     list-style-type: circle;
 }
+
 
 ol{
     list-style-type: lower-roman;
@@ -55,4 +56,13 @@ table{
 
 table, th, td{
     border: 3px solid black;
+}
+
+img {
+    border-radius: 50%;
+}
+
+img:hover {
+    -webkit-transform: scaleX(-1);
+    transform: scale(-1);
 }
