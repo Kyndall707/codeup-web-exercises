@@ -1,6 +1,58 @@
 h1 {
-    color: red;
+    Text-align: center;
+    color: deeppink;
+    text-decoration: underline;
 }
-h1 {
-    font-style: italic;
+
+body {
+    background-color: dimgrey;
+    color: lightgrey;
+    background-image: url(https://i.pinimg.com/originals/76/46/5b/76465be29d569c472727be6a411ad880.png) ;
+    font-family: 'Nunito', sans-serif;
+}
+
+ul{
+    list-style-type: circle;
+}
+
+ol{
+    list-style-type: lower-roman;
+}
+
+h3 {
+    color: deeppink;
+    text-decoration: underline;
+}
+
+h2{
+    color: deeppink;
+    text-decoration: underline;
+}
+
+a:link {
+    color: magenta;
+}
+
+a:hover {
+    color: white;
+}
+
+a:visited {
+    color: lightpink;
+}
+
+a:active {
+    color: darkseagreen;
+}
+
+p{
+    text-align: center;
+}
+
+table{
+    border: 10px solid black;
+}
+
+table, th, td{
+    border: 3px solid black;
 }
