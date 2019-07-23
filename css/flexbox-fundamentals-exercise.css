@@ -1,0 +1,157 @@
+* {box-sizing: border-box;}
+
+body {
+    padding: 0;
+    background: lightskyblue;
+    font-family: Chalkboard, sans-serif;
+}
+
+h1 {text-align: center;}
+
+h2, h3 {
+    padding: 0;
+    margin: 0;
+    margin-top: 10px; /*used to put space between the text and boxes*/
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.green-box:nth-child(4){
+    align-self: flex-start;}
+
+
+.green-box {
+    background: green;
+    height: 1em;
+    width: 2em;
+}
+
+.border {border: 2px solid black;
+}
+
+.card {
+    width: 400px;
+    height: 800px;
+    background: white;
+    padding: 1em;
+    margin: 0 auto;
+    /* enter needed declarations here */
+}
+
+section { display: flex;
+    /* is applyed for ALL sections so you can use flex-box in it */
+}
+
+section:nth-of-type(1) {
+    height: 3em;
+    background: lightgreen;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* this is because its the first section and thus controls all the green boxes */
+}
+section:nth-of-type(1) div:last-child {
+    /* enter needed declarations here */
+}
+
+.purple-box {
+    background: fuchsia;
+    width: 3em;
+    height: 1em;
+    margin-top: 10px;
+}
+
+.purple-box:nth-of-type(1) {
+    flex-grow: 2;
+    /* enter needed declarations here */
+}
+
+.purple-box:nth-of-type(2) {
+    flex-grow: 1;
+    /* enter needed declarations here */
+}
+
+/*section:nth-of-type(2){
+    flex-direction: row;
+}*/
+
+.blue-box {
+    width: 100%;
+    background: blue;
+    height: 10em;
+    margin-top: 10px;
+}
+
+section:nth-of-type(3) {
+    justify-content: flex-end;
+    /* enter needed declarations here */
+}
+
+section:nth-of-type(3) h3 {
+    flex-grow: 1;
+    /* enter needed declarations here */
+
+}
+
+.orange-circle {
+    background: orange;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+    margin: .5em;
+}
+
+section:nth-of-type(4){
+    justify-content: space-between;
+}
+
+.large-brown-box {
+    height: 5em;
+    width: 7em;
+    background: brown;
+    /* enter needed declarations here */
+}
+
+.large-brown-box:nth-of-type(2) {
+    margin: 0px 1em;
+
+}
+
+section:nth-of-type(5) {
+    justify-content: space-around;
+    align-items: center;
+
+
+    /* yellow squares */
+}
+
+.yellow-box {
+    background: yellow;
+    width: 2em;
+    height: 2em;
+    margin: 10px;
+}
+
+section:nth-of-type(6) {
+    background: coral;
+    height: 14em;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* enter needed declarations here */
+}
+
+.grey-box {
+    background: grey;
+    width: 3em;
+    height: 3em;
+    margin: 2px;
+}
+
+.grey-box:nth-of-type(odd) {
+    height: 4em;
+}

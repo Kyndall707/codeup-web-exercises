@@ -29,6 +29,7 @@ a {
 .nav-item{
     padding: 1.5em;
     float: left;
+    /* was suppposed to put inline-block to have the nav bar text line up side by side*/
 }
 
 .top-nav {
@@ -57,14 +58,16 @@ a {
     height: 60px;
 }
 
+
 .profile-form{
     float: right;
-
+/* was supposed to add line-height: 80px;  */
 }
 
 .profile-image{
     position: absolute;
     top: 220px;
+    /* top was supposed to be 240px */
 }
 
 .profile-details{
@@ -73,7 +76,10 @@ a {
     bottom: 0px;
     margin: .5em;
     float: left;
-}
+} /* wanted me to do margin: 0 .5em; and add
+.profile-details,who-to-follow{
+width: calc(25% - 1em)
+}*/
 
 .profile-entry{
     margin: .5em;
@@ -101,27 +107,38 @@ a {
     border-bottom: 1px black;
     padding: .5em;
     overflow: auto;
-}
+} /*background color was supposed to be var(--light-bg);
+border-bottom was supposed to look like thid 1px solid var(seperator-color)
+overflow: auto; was correct!
+*/
 
 .media-image{
     width: 50px;
     border: 1px solid black;
     margin-top: 1.33em;
     float: ;
-}
+}/*didnt need border AT ALL
+float supposed to be left
+*/
 
 .media-body{
     width: 100%;
     float: ;
-}
+}/*float:left
+width:(100% - 50px);*/
 
 .profile-items{
     padding: 0px;
-}
+}/*padding CORRECT
+list-style:none;
+*/
+
+/*.profile entry:
+padding:.5em;*/
 
 .container{
     padding: 2em;
-}
+}/* did this perfect????? */
 
 .btn {
     border: 1px solid var(--main-link-color);
