@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+}
+.navbar {
+    font-size: 18px;
+    background-color: darkgrey;
+    border: 1px darkgray;
+    padding-bottom: 10px;
+}
+.main-nav {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.nav-links,
+.logo {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    justify-content: center;
+    display: flex;
+}

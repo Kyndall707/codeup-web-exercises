@@ -56,11 +56,12 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* flex container */
+    /* flex container: can use margin:auto to center both on the x-axis and y-axis*/
 }
 .flex-form {
     /* flex items */
 }
 .destination {
-    /* bigger item */
+    /* bigger item,
+     flex-basis:20em; */
 }
