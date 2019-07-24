@@ -1,25 +1,35 @@
+
+
 * {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 }
 body {
+    margin: 0;
 }
-.navbar {
-    font-size: 18px;
-    background-color: darkgrey;
-    border: 1px darkgray;
-    padding-bottom: 10px;
+nav {
+    background: #333333;
 }
-.main-nav {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* made unordered list a flex container */
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    display: inline-block; /* inline-block to increase clickable area beyond the text */
+    padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
 }
 
+nav ul li:nth-child(5) {
+    /*
+        this allows the last flex item to be right justified
+        by filling remaining space to the left of the flex item with margin
+    */
+    margin-left: auto;
+}
 
-.nav-links,
 .logo {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
