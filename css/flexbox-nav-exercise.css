@@ -35,4 +35,5 @@ nav ul li:nth-child(5) {
     color: rgba(255, 255, 255, 0.7);
     justify-content: center;
     display: flex;
+    height: 2em;
 }
