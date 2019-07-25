@@ -64,3 +64,9 @@
     grid-column: 5/9;
     background-color: gold;
 }
+
+.container{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
