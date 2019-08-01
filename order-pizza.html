@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!--javascript below-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4"><em>Welcome to Pizza World!</em></h1>
+    </div>
+</div>
+
+<!--NAV start-->
+
+<ul class="nav nav-pills bg-lightpink text-white">
+    <li class="nav-item">
+        <a class="nav-link" href="#">Pizza World</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Order Online</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Menu</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="false">Sign up</a>
+    </li>
+    <li>
+        <input type='text' placeholder='Zip code' id='zip'/>
+    </li>
+    <li>
+        <button type="button" id="button">Search stores near you!</button>
+    </li>
+</ul>
+
+
+<h3>Build your own pizza!</h3>
+<!-- navigation cards start -->
+
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">1: Size and crust</a>
+                <div id="container2">
+                    <p id="tossed">Hand tossed</p>
+                    <p id="crust">Garlic seasoned crust with a rich, buttery taste.</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Small (10")
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">
+                            Medium (12")
+                        </label>
+                    </div>
+
+
+
+
+                    <!--crispy thin start-->
+
+                    <p id="crispy">Crispy Thin</p>
+                    <p id="thin-crust">Thin enough for optimum crispy to cromchy ratio.</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Medium (12")
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                        <label class="form-check-label" for="defaultCheck2">
+                            Large (14")
+                        </label>
+                    </div>
+                    <!-- footer start -->
+                    <div id="footer">
+                        <button type="button"><p class="text-right"> Next Step > </p></button>
+                    </div>
+                </div>
+                </article>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">2: Cheese and Sauce</a>
+                <p>more options</p>
+            </li>
+            <li class="nav-item"><a class="nav-link active" href="#">3: Toppings</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--  choose side start  -->
+    <article id="container1">
+        <div class="card-body">
+            <p class="p1">Choose a Size and Crust</p>
+        </div>
+</div>
+        <!--  hand tossed start  -->
+
+<!--<div id="container2">-->
+<!--    <p id="tossed">Hand tossed</p>-->
+<!--    <p id="crust">Garlic seasoned crust with a rich, buttery taste.</p>-->
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">-->
+<!--        <label class="form-check-label" for="defaultCheck1">-->
+<!--            Small (10")-->
+<!--        </label>-->
+<!--    </div>-->
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">-->
+<!--        <label class="form-check-label" for="defaultCheck2">-->
+<!--            Medium (12")-->
+<!--        </label>-->
+<!--    </div>-->
+
+
+
+
+<!--    &lt;!&ndash;crispy thin start&ndash;&gt;-->
+
+<!--    <p id="crispy">Crispy Thin</p>-->
+<!--    <p id="thin-crust">Thin enough for optimum crispy to cromchy ratio.</p>-->
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">-->
+<!--        <label class="form-check-label" for="defaultCheck1">-->
+<!--            Medium (12")-->
+<!--        </label>-->
+<!--    </div>-->
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">-->
+<!--        <label class="form-check-label" for="defaultCheck2">-->
+<!--            Large (14")-->
+<!--        </label>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; footer start &ndash;&gt;-->
+<!--    <div id="footer">-->
+<!--        <button type="button"><p class="text-right"> Next Step > </p></button>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</article>-->
+</body>
+</html>

@@ -1,0 +1,146 @@
+body{
+    padding-top: 60px;
+    /*width: 80%;*/
+}
+.jumbotron{
+    border: 1px solid black;
+    padding: 40px;
+    height: 150px;
+    width: 100%;
+    background-image: url(https://java.codeup.com/examples/bootstrap/pizza.png)
+}
+
+h1{
+    font-weight: bold;
+    color: #000000;
+}
+
+h3{
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+
+.display-4{
+    border: 1px solid black;
+    width: 100%;
+    background-color: whitesmoke;
+    text-align: center;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.nav-pills{
+    overflow: hidden;
+    background-color: lightpink;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px lightgray;
+}
+
+.nav-pills .nav-link.active {
+    background-color: lightgray;
+}
+
+li.nav-item{
+}
+
+.nav-pills .nav-link{
+    color:  dimgrey;
+}
+/**/
+#zip{
+    position: absolute;
+    top: 13%;
+    left: 29%;
+    border-radius: 3px;
+}
+/**/
+#button{
+    position: absolute;
+    top: 5px;
+    left: 37.5em;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+a:active{
+    color:darkgray;
+}
+
+.p1{
+    display: flex;
+    background-color: lightpink;
+    padding: 15px;
+    margin: 0;
+}
+
+#tossed{
+    background-color: whitesmoke;
+    padding: 15px;
+}
+
+#crispy{
+    background-color: whitesmoke;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+#crust{
+    border: 1px lightgray;
+    padding: 15px;
+}
+
+#thin-crust{
+    border: 1px lightgray;
+    padding: 15px;
+}
+
+.form-check{
+    background-color: lightpink;
+    padding: 22px;
+    border: 1px solid lightgray;
+}
+
+
+p{
+    margin:0;
+}
+
+.card-body{
+    padding:0;
+
+}
+
+#checkbox-cond{
+    background-color: whitesmoke;
+}
+
+#container2{
+    border: 1px grey;
+    margin: 12px;
+    padding: 20px;
+}
+
+.text-right{
+}
+
+#footer{
+    background-color: whitesmoke;
+    padding: 15px;
+    margin-top: 10px;
+    width: 99%;
+    text-align: end;
+}
+
+#container1{
+    border: 1px solid grey;
+}
