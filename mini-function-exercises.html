@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+       // function returnFive() {
+       //     return 5;
+       // }
+       // console.log(returnFive());
+
+
+       // Write a function, isFive,
+       // that takes in an input and returns the boolean value true
+       // if the passed argument is the number 5 or the string "5".
+       // Return false otherwise.
+
+ //my answer:
+ //       function isFive()//is a parameter
+ //        {
+ //           var a = 5 || '5';
+ //           var b = 2;
+ //       }
+ //       console.log(a = true)
+ //       console.log(b = false)
+//right answer:
+       function isFive(input) {
+           var output;
+           output = input === '5' || input === 5;
+           return output;
+           //or just: output = input === 5;
+           //or return paraseInt(input) === 5;
+       }
+       //ask yourself "how to make a function decloration"
+       //what is the function decloration?
+       //what is the input type of this function, how many?
+       //whats the return type?? (output)
+
+
+       // Write a function, isShortWord,
+       // that takes in a string and returns the boolean value true
+       // if the passed argument is shorter than 5 characters.
+       // Return false otherwise.
+ //my answer:
+               // function isShortWord(stringRight, stringWrong) {
+               //  var stringRight = (" , , , ,") == true;
+               //  var stringWrong = (" , , , , , ,") == false;
+               // }
+               // console.log(isShortWord())
+//right answer:
+       function isShortWord(str) {
+           return str.length < 5;
+       }
+       // Write a function, isSameLength, that takes in two string inputs
+       // and returns the boolean value true if the passed arguments
+       // are the same length. Return false otherwise.
+//my answer:
+//right answer:
+       function isSameLength(str1, str2) {
+           var output = str1.length === str2.length;
+           return ouput;
+       }
+    //to test
+       console.log(isSameLength("cat","dog")) //true
+        console.log(isSameLength("hello","dog")) //false
+
+
+       // Write a function, getSmallerSegment,
+       // that takes in a string and a number input.
+       // The function should return a substring of the first argument
+       // that is as many characters long as the second argument in lowercase.
+
+       //input:string,number
+       //output:sting
+
+        function getSmallerSegment(str, num) {
+            return str.substring(0, num).toLowerCase();
+        }
+    //test case
+        console.log(getSmallerSegment("hello", 3), "hel");
+       console.log(getSmallerSegment("SUBMARINE", 6), "submar");
+    </script>
+</body>
+</html>
