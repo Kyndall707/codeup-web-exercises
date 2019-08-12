@@ -1,5 +1,32 @@
 "use strict";
 
+var willContinue = confirm("please enter a number?");
+
+if(willContinue){
+    //prompt the user for a number
+    var userNum = prompt("what number would you like to enter");
+
+    var isNum = !isNaN(userInput);
+    if (isNum){
+        var userNum = parseFloat(userInput);
+        var isEven = userInput % 2 === 0;
+        var isEvenMessage = (isEven) ? "Number is Even": "number is odd";
+            alert(isEvenMessage);
+
+        // alert the following...
+        alert(userNum + 100);
+        var isPos = Math.sign(userNum) === 1;
+        var isPosMessage = (isPos) ? "number is positive" : "number is negative";
+        alert(isPosMessage);
+        //whether the number is even or odd
+        //what the number plus 100 is
+        //if the number is negative or positive
+    } else {
+        //otherwise
+        //if what the user enters is not a number, use an alert to tell them that, and
+        //do *not* display any of the above information.
+        }
+}
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -15,6 +42,19 @@
  *
  * Can you refactor your code to use functions?
  */
+var willContinue = confirm("please enter a number?");
+function isNum(input) {
+    return !isNaN()
+}
+// function () {
+//     return num % 2 === 0;
+// }
+function outputEvenMessage(result){
+
+}
+
+
+
 
 /* ########################################################################## */
 
@@ -38,7 +78,7 @@
             return "i dont know anything about this color";
         }
     }
-     console.log(analyzeColor());
+     // console.log(analyzeColor("blue"));
 /**
  * TODO:
  * Create a function named `analyzeColor` that accepts a string that is a color
@@ -71,34 +111,34 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 
 
-// var analyzeColor = prompt("What is the color?");
-// switch (analyzeColor) {
-//     case "blue":
-//         alert("Blue is the color of the sky");
-//         break;
-//     case "red":
-//         alert("Red is the color of roses");
-//         break;
-//     case "orange":
-//         alert("Orange is the color of pumpkins");
-//         break;
-//     case "yellow":
-//         alert("Yellow is the color of sunflowers");
-//         break;
-//     case "green":
-//         alert("Green is the color of grass");
-//         break;
-//     case "indigo":
-//         alert("Indigo is the color of blueberries");
-//         break;
-//     case "violet":
-//         alert("Violet is the color of violets");
-//         break;
-//     default:
-//         alert("i dont know this color");
-//         break;
-//
-// }
+var analyzeColor = prompt("What is the color?");
+switch (analyzeColor) {
+    case "blue":
+        alert("Blue is the color of the sky");
+        break;
+    case "red":
+        alert("Red is the color of roses");
+        break;
+    case "orange":
+        alert("Orange is the color of pumpkins");
+        break;
+    case "yellow":
+        alert("Yellow is the color of sunflowers");
+        break;
+    case "green":
+        alert("Green is the color of grass");
+        break;
+    case "indigo":
+        alert("Indigo is the color of blueberries");
+        break;
+    case "violet":
+        alert("Violet is the color of violets");
+        break;
+    default:
+        alert("i dont know this color");
+        break;
+
+}
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
@@ -112,6 +152,26 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 
 /* ########################################################################## */
+    // var userMessage = prompt("Pick a number between 0 and 5");
+    function calculateTotal(luckyNumber, totalAmount){
+        if(luckyNumber === 0){
+            alert("Sorry! No discount") + luckyNumber + totalAmount;
+        }else if(luckyNumber === 1){
+            alert("Congrats! You've received a 10% discount.") + (totalAmount - (totalAmount/.10));
+        }else if(luckyNumber === 2){
+            alert("Congrats! You've received a 25% discount.") + (totalAmount - (totalAmount/.25));
+        }else if(luckyNumber === 3){
+            alert("Congrats! You've received a 35% discount.") + (totalAmount - (totalAmount/.35));
+        }else if(luckyNumber === 4){
+            alert("Congrats! You've received 50% discount.") + (totalAmount - (totalAmount/.50));
+        } else if(luckyNumber === 5) {
+            alert("Congrats! Your purchase is free!") + (totalAmount - (totalAmount/.100));
+        }
+    }
+console.log(calculateTotal(1, 100))
+
+
+
 
 /**
  * TODO:
@@ -140,5 +200,5 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+// Generate a random number between 0 and 5
+var luckyNumber = Math.floor(Math.random() * 5);
