@@ -7,39 +7,29 @@ function showMultiplicationTable(num) {
 showMultiplicationTable(7);
 
 //for loop problem 2 unfinished -----------------------------------------
-var i = Math.floor(Math.random() * 50) + 50;
-function isEvenOrOdd(num1) {
-    for(var i=0; i<=15; i++){
-        if (i === 0){
-            console.log(i + "is even");
+function randomOddEven() {
+    for (var i = 1; i <=10; i++) {
+        var number = Math.floor(Math.random() * 180 + 20);
+        if (number % 2 === 0) {
+            console.log(number +  " is even ");
+        } else {
+            console.log(number + " is odd ");
         }
-        else if (i % 2){
-            console.log(i + " is even");
-        } else{
-            console.log(i + " is odd");
-        }
-    }
-} isEvenOrOdd(7);
-//for loop problem 3 unfinished------------------------------------
-// function addOne(num) {
-//     for (var i = 0; i <=9; i++){
-//         console.log(num);
-//     }
-// }addOne(2);
-
-function generatePyramid(num) {
-    var number = '';
-
-    for (var i = 1; i <= num; i++) {
-        console.log(number += i);
     }
 }
-generatePyramid(9);
+randomOddEven();
+//for loop problem 3 unfinished------------------------------------
+for(var i = 1; i <= 9; i++){
+    var row ="";
+    for(var j = 0; j < i; j++){
+        row = row + i;
+    }
+    console.log(row);
+}
+
+
 
 //for loops problem 4 unfinished--------------------------------
-function subtractFive(num) {
-    for (var i = 5; i <= 100; i--) {
-        console.log(num - i);
-        break;
+    for (var i = 100; i >= 5; i = i - 5) {
+    console.log(i);
     }
-}subtractFive(100);
