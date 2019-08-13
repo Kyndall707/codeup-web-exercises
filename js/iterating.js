@@ -33,25 +33,35 @@
         console.log(names[i]);
     }
 
+
+
     /**
      * TODO: done
      * Write some code that uses a for loop to log every item in the names
      * array.
      */
 
-    names.forEach(names); {
-        console.log(names);
-    };
+    names.forEach(function (name) {
+        console.log(name);
+    });
 
     /**
      * TODO: done
      * Refactor your above code to use a `forEach` loop
      */
 
-    console.log(names[0]); //calling the 1st
-    console.log(names[1]); //calling the 2nd
-    console.log(names[3]); //calling the last
-
+    function first(arr) {
+        return arr[0];
+    }
+    function secound(arr) {
+        return arr[1];
+    }
+    function third(arr) {
+        return arr[arr.length - 1];
+    }
+    console.log(first(names));
+    console.log(secound(names));
+    console.log(third(names));
     /**
      * TODO: done
      * Create the following three functions, each will accept an array and
