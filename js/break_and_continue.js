@@ -14,3 +14,12 @@ for(var i = 1; i < 100; i++){
         break;
     }
 }
+
+//first question that i missed---------------
+
+while(true) {
+    var num = parseInt(prompt("give me an odd number between 0 and 50"));
+    if (num % 2 !== 0 && num > 0 && num < 51){
+        break;
+    }
+}
