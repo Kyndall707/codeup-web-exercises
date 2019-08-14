@@ -53,13 +53,24 @@
     //     return total;
     // }
 
+
+
+    //IS TELLING ME IT CANNOT FIND WHAT AMOUNT IS
     shoppers.forEach(function (shopper) {
         if(shopper.amount > 200){
-            console.log("Hello " + shopper.name + "today your amount is " + shopper.amount - (shopper.amount * .12));
+            console.log("Hello " + shopper.name + "today your amount is " + shopper.amount + "your amount after the discount will be" + (shopper.amount - (shopper.amount * .12)));
         } else {
-            console.log("Hello " + shopper.name + " " + "your total did not exceed $200, your total today will be" + " " + "$" + shopper.amount);
-        }
-    });
+                console.log("Hello " + shopper.name + "your total did not exceed $200, your total today will be" + shopper.amount)
+            }
+        });
+
+    // shoppers.forEach(function (shopper) { //<-- the .forEach Loops through everything in a array)
+    //     if(shopper.amount > 200) {
+    //         console.log("Hello " + shopper.name + " Your amount today is " + shopper.amount + " your amount after the discount is " + (shopper.amount - (shopper.amount * .12)));
+    //     } else {
+    //         console.log("Hello " + shopper.name + " Your amount today is " + shopper.amount)
+    //     }
+    // });
 
 
     // /** TODO:
