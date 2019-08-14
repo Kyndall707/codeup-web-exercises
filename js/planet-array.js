@@ -32,19 +32,19 @@
 //REMOVING THE SUN
     console.log('Removing "The Sun" from the beginning of the planets array.');
 
-    planets.shift('The Sun');
+    planets.shift();
 
     console.log(planets);
 //REMOVING PLUTO
     console.log('Removing "Pluto" from the end of the planets array.');
 
-    planets.pop('Pluto')
+    planets.pop();
 
     console.log(planets);
 //FINDING AND LOGGING THE INDEX OF EARTH
     console.log('Finding and logging the index of "Earth" in the planets array.');
 
-    planets.indexOf('Earth');
+    console.log(planets.indexOf('Earth'));
 
 //REVERSING PLANETS ORDERS
     console.log("Reversing the order of the planets array.");
