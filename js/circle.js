@@ -3,7 +3,7 @@
 
     // create a circle object
     var circle = {
-        radius: 5,
+        radius: 3,
 
         getArea: function () {
             // TODO: complete this method
@@ -36,6 +36,7 @@
 
     console.log("=======================================================");
     // TODO: Change the radius of the circle to 5.
+    circle.radius = 5;
 
     // log info about the circle
     console.log("Raw circle information");
