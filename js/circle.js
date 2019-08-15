@@ -10,6 +10,7 @@
             // hint: area = pi * radius^2
             var area;
             area = Math.PI * this.radius ^2;
+            //or area = math.pi * math.pow(this.raidus, 2);
 
             return area; // TODO: return the proper value
         },
