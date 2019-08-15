@@ -145,6 +145,30 @@
      *      ...
      */
 
+    function createAuthor(firstName, lastName){
+        return {
+            firstName: firstName,
+            lastName: lastName
+        }
+    }
+
+    function createBook(title, author){
+        return{
+            title: title,
+            author: author
+        }
+    }
+    createBook("garfield gains weight", "whoever", "last");
+    books.forEach(function (book, i) {
+
+        console.log("Title: " + book.title);
+        console.log("author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("----");
+        console.log("Book # " + (i + 1));
+    };
+
+
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
