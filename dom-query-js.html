@@ -67,7 +67,7 @@
             var listener = function (event) {
                 var subParagraphs = document.getElementsByClassName("sub-paragraph");
                 subParagraphs[0].innerText = 'Mission Accomplished!';
-            }
+            };
 
             // register the listener to handle clicks on btn1
             document.getElementById('btn1').addEventListener('click', listener, false);
@@ -75,7 +75,7 @@
             var listener2 = function (event) {
                 var mainHeader = document.getElementById("main-header");
                 mainHeader.innerHTML = "Javascript";
-            }
+            };
 
             // register the listener to handle clicks on btn1
             document.getElementById('btn2').addEventListener('click', listener2, false);
@@ -83,7 +83,7 @@
             var listener3 = function (event) {
                 var subHeader = document.getElementById("sub-header");
                 subHeader.style.color = "green";
-            }
+            };
 
             // register the listener to handle clicks on btn1
             document.getElementById('btn3').addEventListener('click', listener3, false);
@@ -101,7 +101,7 @@
             document.getElementById('btn4').addEventListener('click', listener4, false);
 
 
-        }})();
+        };
 </script>
 </body>
 </html>
