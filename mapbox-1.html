@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<script src = "js/keys.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js'></script>
+
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+<script>
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
+    });
+
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map
+
+    // setTimeout(function()){
+    //     map.setStyle('mapbox://styles/mapbox/streets-v9');
+    //     map.setZoom(3);
+    // }, 5000);                             <---------  answer
+
+    // var marker = new mapboxgl.Marker()
+    //     .setLngLat([-98.4916, 29.4260])
+    //     .addTo(map);
+
+
+    // reverseGeocode({lng: -98.4861, lat: 29.4260}, accessToken = 'pk.eyJ1IjoibGFkeWsiLCJhIjoiY2p6aWhhbmU5MTZzaTNrcHB5cjFkaGNoYSJ9.oSlpgNtHqUu8Rtq1YlCVjw', 5000).then(function(results) {
+    //     console.log(results);
+    // });
+
+    // map.addControl(new mapboxgl.FullscreenControl()); //all this did was give me the option to go full screen
+
+
+
+    // marker = setTimeout([marker], 5000);
+
+</script>
+
+</body>
+</html>
