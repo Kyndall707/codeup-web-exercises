@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<script src = "js/keys.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js'></script>
+
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+
+        <script>
+
+            mapboxgl.accessToken = mapboxToken;
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v9',
+                zoom: 10,
+                center: [-98.489615, 29.426827]
+            });
+
+         // map.jumpTo({center:[-114.3353, 48.4106]}); //how to do it without geocoding
+
+
+            function geocode(search, token) {
+                var baseUrl = 'https://api.mapbox.com';
+                var endPoint = '/geocoding/v5/mapbox.places/';
+                return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+                    .then(function(res) {
+                        return res.json();
+                        // to get all the data from the request, comment out the following three lines...
+                    }).then(function(data) {
+                        return data.features[0].center;
+                    });
+            } //had to put this because "geocode was undefined" even though it was certainly defined -.-
+
+
+
+
+            geocode("Whitefish, Montana 59937", mapboxToken).then(function (result) {
+                console.log(result);
+                map.setCenter(result);
+                map.setZoom(10);
+            }, 2000);
+
+        </script>
+
+</body>
+
+</html>
