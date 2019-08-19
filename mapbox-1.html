@@ -13,36 +13,23 @@
 <div id='map' style='width: 400px; height: 300px;'></div>
 
 <script>
-
+    mapboxgl.accessToken = mapboxToken;
     var map = new mapboxgl.Map({
-        container: 'map',
+       container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 10,
         center: [-98.4916, 29.4252]
     });
 
-    mapboxgl.accessToken = mapboxToken;
-    var map = new mapboxgl.Map
 
+    //answer to first mini exercise but has syntax errors
     // setTimeout(function()){
     //     map.setStyle('mapbox://styles/mapbox/streets-v9');
     //     map.setZoom(3);
-    // }, 5000);                             <---------  answer
-
-    // var marker = new mapboxgl.Marker()
-    //     .setLngLat([-98.4916, 29.4260])
-    //     .addTo(map);
-
-
-    // reverseGeocode({lng: -98.4861, lat: 29.4260}, accessToken = 'pk.eyJ1IjoibGFkeWsiLCJhIjoiY2p6aWhhbmU5MTZzaTNrcHB5cjFkaGNoYSJ9.oSlpgNtHqUu8Rtq1YlCVjw', 5000).then(function(results) {
-    //     console.log(results);
-    // });
-
-    // map.addControl(new mapboxgl.FullscreenControl()); //all this did was give me the option to go full screen
+    // }, 5000);
 
 
 
-    // marker = setTimeout([marker], 5000);
 
 </script>
 
