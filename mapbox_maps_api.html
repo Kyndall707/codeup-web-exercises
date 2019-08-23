@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<script src = "js/keys.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js'></script>
+
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+        function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+        .then(function(res) {
+        return res.json();
+        // to get all the data from the request, comment out the following three lines...
+        }).then(function(data) {
+        return data.features[0].center;
+        });
+        }
+
+
+        mapboxgl.accessToken = mapboxToken;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 10,
+            center: [-98.489615, 29.426827]
+        });
+
+
+        //Generate a map that shows the city with your favorite restaurant using geocoding.
+
+        geocode("2400 Seton Ave, Austin, TX 78705", mapboxToken).then(function (result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(10);
+        });
+
+        //
+        // var tatsuyaPopup = new mapboxgl.Popup()
+        //     .setHTML("<p>Ramen Tatsuya!</p>")
+        // // .addTo(map);
+        //
+        // var marker =  new mapboxgl.Marker()
+        //     .setLngLat([-97.763281, 30.253962])
+        //     .addTo(map)
+        //     .setPopup(tatsuyaPopup)
+        //     .addTo(map);
+        // //---------------------------
+
+
+        var locations = [['Ramen Tatsuya', -97.763281, 30.253962, 0], ['Kura Sushi', -97.717589, 30.337623, 1], ['Little sheep hot pot',-97.744111, 30.288053, 2]]; //1:ramen tatsuya 2:kura 3:little sheep
+
+        locations.forEach(function (marker) {
+
+            new mapboxgl.Marker()
+                .setLngLat([-97.763281, 30.253962])
+                .addTo(map);
+
+
+            new mapboxgl.Marker()
+                .setLngLat([-97.717589, 30.337623])
+                .addTo(map);
+
+
+            new mapboxgl.Marker()
+                .setLngLat([-97.744111, 30.288053])
+                .addTo(map);
+
+
+
+
+
+            // var kuraPopup = new mapboxgl.Popup()
+            //     .setHTML("<p>Kura sushi!</p>")
+            // .addTo(map);
+            //
+            // var marker1 =  new mapboxgl.Marker()
+            //     .setLngLat([-97.717589, 30.337623])
+            //     .addTo(map)
+            //     .setPopup(kuraPopup)
+            //     .addTo(map);
+            //
+            // var sheepPopup = new mapboxgl.Popup()
+            //     .setHTML("<p>Little sheep hot pot!</p>")
+            // .addTo(map);
+            //
+            // var marker2 =  new mapboxgl.Marker()
+            //     .setLngLat([-97.744111, 30.288053])
+            //     .addTo(map)
+            //     .setPopup(sheepPopup)
+            //     .addTo(map);
+         });
+
+
+
+
+
+        // var tatsuyaInfo = {
+        //     address: "1234 S Lamar Blvd, Austin, TX 78704",
+        //     popupHTML: "<p>Ramen Tatsuya!</p>"
+        // };
+        //
+        //
+        // function placeMarkerAndPopup(tatsuyaInfo, mapboxToken, map) {
+        //     geocode(info.address, token).then(function(coordinates) {
+        //         var popup = new mapboxgl.Popup()
+        //             .setHTML(info.popupHTML);
+        //         var marker = new mapboxgl.Marker()
+        //             .setLngLat(coordinates)
+        //             .addTo(map)
+        //             .setPopup(popup);
+        //         popup.addTo(map);
+        //     });
+        // }
+        //
+        // placeMarkerAndPopup(tatsuyaInfo, mapboxToken, map);
+
+
+
+
+
+</script>
+</body>
+</html>

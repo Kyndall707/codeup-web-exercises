@@ -40,12 +40,19 @@
 
 
 
-
+        setTimeout(function () {
             geocode("Whitefish, Montana 59937", mapboxToken).then(function (result) {
                 console.log(result);
                 map.setCenter(result);
                 map.setZoom(10);
-            }, 2000);
+            });
+            }, 5000);  //<------- adds 5 seconds
+
+
+            // var coor = {}
+            // reverseGeocode(coor, mapboxToken).then(function (result) {  //<----------is the 2nd part of the mini exercise
+            //     console.log(result);
+            // })
 
         </script>
 
