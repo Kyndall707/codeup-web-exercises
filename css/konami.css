@@ -1,0 +1,16 @@
+h1{
+    font-family: 'Press Start 2P', cursive;
+    /*display: flex;*/
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+
+.code{
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
