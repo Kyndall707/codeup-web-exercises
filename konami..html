@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<!--<script src="/js/jquery.js"></script>-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<p>
+    Click somewhere in the output box [here] to ensure focus.<br>
+    Then enter the following code using your keyboard:
+</p>
+
+<p class="code">
+    <span>&uarr;</span>
+    <span>&uarr;</span>
+    <span>&darr;</span>
+    <span>&darr;</span>
+    <span>&larr;</span>
+    <span>&rarr;</span>
+    <span>&larr;</span>
+    <span>&rarr;</span>
+    <span>B</span>
+    <span>A</span>
+</p>
+<script>
+    "use strict";
+
+    var global = {
+
+        konami: function() {
+            var konamikeys = [38,38,40,40,37,39,37,39,66,65],
+                started = false,
+                count = 0;
+
+            $(document).keydown(function(e){
+                var reset = function() {
+                    started = false;
+                    count = 0;
+                    return;
+                };
+
+               var key = e.keyCode;
+
+                // Begin watching if first key in sequence was pressed.
+                if(!started){
+                    if(key == 38){
+                        started = true;
+                    }
+                }
+
+                // If we've started, pay attention to key presses, looking for right sequence.
+                if (started){
+
+                    if (konamikeys[count] == key){
+                        count++;
+                    } else {
+                        // Incorrect key, restart.
+                        reset();
+                    }
+                    if (count == 10){
+                        // Success!
+                        alert('Konami code entered! Cheater!');
+                        reset();
+                    }
+                } else {
+                    reset();
+                }
+            });
+        }
+    };
+
+    global.konami();
+
+</script>
+</body>
+</html>
