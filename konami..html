@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="css/konami.css">
 </head>
 <body>
-<h1>Konami Code</h1>
+<h1 class="img">Cheat Code's</h1>
 
 <!--<script src="/js/jquery.js"></script>-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<p>
+<p class="p1">
     Please click [here] to ensure focus.<br>
     Then enter the following code using your keyboard:
 </p>
@@ -82,7 +82,11 @@
                     }
                     if (count === 10){
                         // Success!
-                        alert('Konami code entered! Cheater!');
+                        $('.code').css({'color': 'white', 'background': 'darkred'});
+                        setTimeout(function () {
+                            $('.code').css({'color': 'black', 'background': 'white'});
+                        }, 3000);
+                        alert('You now have 30 lives!');
                         reset();
                     }
                 } else {
@@ -130,6 +134,14 @@
                     }
                     if (count === 7){
                         // Success!
+                        $('.code2').css({'color': 'yellow'});
+                        $('.p1').css('background-image', 'url(img/blood.gif)');
+                        setTimeout(function () {
+                           $('.code2').css({'color': 'black'});
+                        }, 3000);
+                        setTimeout(function () {
+                            $('.p1').css({'background-image': 'none'});
+                        }, 3000);
                         alert('Scorpion: "Get over here!"');
                         reset();
                     }
@@ -176,7 +188,11 @@
                     }
                     if (count === 5){
                         // Success!
-                        alert('Delta Q Delta, invincibility granted!');
+                        $('.code3').css({'color': 'white', 'text-shadow': '1px 1px 2px black, 0 0 35px yellow, 0 0 10px gold' });
+                        setTimeout(function () {
+                            $('.code3').css({'color': 'black', 'text-shadow': '1px 1px 2px white, 0 0 35px white, 0 0 10px white'});
+                        }, 4000);
+                        alert('Invincibility granted!');
                         reset();
                     }
                 } else {
