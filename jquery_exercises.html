@@ -5,12 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<script src="js/jquery-2.2.4.js"></script>
+<!--<script src="js/jquery-2.2.4.js"></script>-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     // window.onload = function() {
     //     alert($('#important').text());
     // }; //--------------> first exercise
-    //
+
     // $('body').css({"border-color": "red",
     //     "border-width":"5px",
     //     "border-style":"solid"}); //--------------> 2nd exercise
@@ -18,9 +19,34 @@
     // $("li").change(function() {
     //     $('font').css("font-size","20px")
     // });
-    $('li').css('font-size', '20px').css('background', 'red'); //this all should work for the rest of the exercise but doesnt???
-    $('p').css('background-color', 'blue'); //because it doesnt work i may have a currupt jquery file and will need to tag it below
-    $('h1').css('background-color', 'green');
+    // $('li').css('font-size', '20px').css('background', 'red'); //this all should work for the rest of the exercise but doesnt???
+    // $('p').css('background-color', 'blue'); //because it doesnt work i may have a currupt jquery file and will need to tag it below
+    // $('h1').css('background-color', 'green');
+    $(document).ready(function () {
+        //1st
+        $('h1').click(function() {
+            $(this).css('background-color', 'red');
+        });
+        //2nd
+        $('p').dblclick(function () {
+            $(this).css('font-size', '18px');
+        });
+        //3rd
+        $('li').hover(function () {
+            $(this).css('color', 'red');
+        },
+            function(){
+            $(this).css('color', 'black');
+            }
+        );
+    });
+
+
+
+
+
+
+
 </script>
 <h1>Example Page</h1>
 <div id="important" class="codeup">
