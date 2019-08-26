@@ -7,22 +7,37 @@
 <body>
 <script src="js/jquery-2.2.4.js"></script>
 <script>
-    window.onload = function() {
-        alert($('#important').text());
-    };
-    $('.important, p').css('background-color', '#FF0');
+    // window.onload = function() {
+    //     alert($('#important').text());
+    // }; //--------------> first exercise
+    //
+    // $('body').css({"border-color": "red",
+    //     "border-width":"5px",
+    //     "border-style":"solid"}); //--------------> 2nd exercise
+
+    // $("li").change(function() {
+    //     $('font').css("font-size","20px")
+    // });
+    $('li').css('font-size', '20px').css('background', 'red'); //this all should work for the rest of the exercise but doesnt???
+    $('p').css('background-color', 'blue'); //because it doesnt work i may have a currupt jquery file and will need to tag it below
+    $('h1').css('background-color', 'green');
 </script>
 <h1>Example Page</h1>
-<div id="important">
+<div id="important" class="codeup">
     <h3>NOTICE</h3>
     <p>This is an important message!</p>
 </div>
-<div class="not-important">
+<div class="not-important" class="codeup">
     <h2>Lorem Ipsum</h2>
     <p>
         Lorem ipsum dolor sit amet, incididunt ut <span class="important">labore et dolore magna aliqua.</span>, quis ut aliquip ex ea commodo.
     </p>
+    <ul>
+        <li id="first-item">hello</li>
+        <li id="second-item">hola</li>
+        <li id="third-item">konichiwa</li>
+    </ul>
 </div>
-<p class="important">This is also very important.</p>
+<p class="important" class="codeup">This is also very important.</p>
 </body>
 </html>
