@@ -27,6 +27,24 @@
     <span>B</span>
     <span>A</span>
 </p>
+ <p>or</p>
+<p class="code2">
+    <span>A</span>
+    <span>B</span>
+    <span>A</span>
+    <span>C</span>
+    <span>A</span>
+    <span>B</span>
+    <span>B</span>
+</p>
+<p>or</p>
+<p class="code3">
+    <span>I</span>
+    <span>D</span>
+    <span>D</span>
+    <span>Q</span>
+    <span>D</span>
+</p>
 <script>
     "use strict";
 
@@ -41,14 +59,14 @@
                 var reset = function() {
                     started = false;
                     count = 0;
-                    return;
+                    // return;
                 };
 
-               var key = e.keyCode;
+               var key = e.keyCode; //lets you know keys are being pressed
 
                 // Begin watching if first key in sequence was pressed.
                 if(!started){
-                    if(key == 38){
+                    if(key === 38){
                         started = true;
                     }
                 }
@@ -56,13 +74,13 @@
                 // If we've started, pay attention to key presses, looking for right sequence.
                 if (started){
 
-                    if (konamikeys[count] == key){
+                    if (konamikeys[count] === key){
                         count++;
                     } else {
                         // Incorrect key, restart.
                         reset();
                     }
-                    if (count == 10){
+                    if (count === 10){
                         // Success!
                         alert('Konami code entered! Cheater!');
                         reset();
@@ -75,6 +93,100 @@
     };
 
     global.konami();
+
+                //konami code done--------------------------------------------
+
+    var global1 = {
+
+        mortal: function() {
+            var mortalkeys = [65,66,65,67,65,66,66],
+                started = false,
+                count = 0;
+
+            $(document).keydown(function(a){
+                var reset = function() {
+                    started = false;
+                    count = 0;
+                    // return;
+                };
+
+                var key = a.keyCode; //lets you know keys are being pressed
+
+                // Begin watching if first key in sequence was pressed.
+                if(!started){
+                    if(key === 65){
+                        started = true;
+                    }
+                }
+
+                // If we've started, pay attention to key presses, looking for right sequence.
+                if (started){
+
+                    if (mortalkeys[count] === key){
+                        count++;
+                    } else {
+                        // Incorrect key, restart.
+                        reset();
+                    }
+                    if (count === 7){
+                        // Success!
+                        alert('Scorpion: "Get over here!"');
+                        reset();
+                    }
+                } else {
+                    reset();
+                }
+            });
+        }
+    };
+
+    global1.mortal();
+            //----------------mortal combat code --------------------
+    var global2 = {
+
+        doom: function() {
+            var doomkeys = [73,68,68,81,68],
+                started = false,
+                count = 0;
+
+            $(document).keydown(function(b){
+                var reset = function() {
+                    started = false;
+                    count = 0;
+                    // return;
+                };
+
+                var key = b.keyCode; //lets you know keys are being pressed
+
+                // Begin watching if first key in sequence was pressed.
+                if(!started){
+                    if(key === 73){
+                        started = true;
+                    }
+                }
+
+                // If we've started, pay attention to key presses, looking for right sequence.
+                if (started){
+
+                    if (doomkeys[count] === key){
+                        count++;
+                    } else {
+                        // Incorrect key, restart.
+                        reset();
+                    }
+                    if (count === 5){
+                        // Success!
+                        alert('Delta Q Delta, invincibility granted!');
+                        reset();
+                    }
+                } else {
+                    reset();
+                }
+            });
+        }
+    };
+
+    global2.doom();
 
 </script>
 </body>
