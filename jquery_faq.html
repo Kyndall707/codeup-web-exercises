@@ -20,7 +20,10 @@
 <!--exercise 3-------------------------------------------------------------------------->
 <div>
     <span id="hidethisdiv">x</span><h1>Would you like to sign up for our newsletter?</h1>
+<hr>
 </div>
+
+<h2>Regesiter for our site?</h2>
 
 
 
@@ -49,7 +52,7 @@
 <button id="style" type="button">Click me for style changes below</button>
 <div>
     <h3 id="park1Heading">park 1</h3>
-    <ul id="parks1">
+    <ul class="parks">
         <li>facts</li>
         <li>factts</li>
         <li>faaaccct</li>
@@ -59,7 +62,7 @@
 
 <div>
     <h3 id="park2Heading">park 2</h3>
-    <ul id="parks2">
+    <ul class="parks">
         <li>stcaf</li>
         <li>jk</li>
         <li>actually no</li>
@@ -69,7 +72,7 @@
 
 <div>
     <h3 id="park3Heading">park 3</h3>
-    <ul id="parks3">
+    <ul class="parks">
         <li>hola</li>
         <li>hola</li>
         <li>hhola</li>
@@ -93,6 +96,7 @@ $('#style').click(function (e) {
     // $('#parks3').children('li').last().css('background-color', 'yellow');
     $('ul li:last-child').css('background-color', 'yellow'); //this works and i am beyond blessed
 });
+//2nd exercise---------------------------------------------------
     $('h3').click(function (e) {
         $(this).next().children().css({ //works without the .children because its chinging the font to the uls, with .children it is chaining the lis and not the ul
             'font-weight': 'bold'
@@ -122,8 +126,17 @@ $('#style').click(function (e) {
 
     //exercise 3 start------------------------------------------------
     $('#hidethisdiv').click(function (e) {
-        $(this).parent().css('display', 'none');
+        $(this).parent().hide();
+    });
+    
+    $('li').hide();
+    
+    $('h3').click(function (e) {
+        $(this).next().children().slideToggle(); //need the children function in this cause youre calling the ul's li(children)
     })
+
+    $('h2').hide(); //justin made this in the css cause he no like the flicker
+    $('h2').delay(8000).fadeIn(); //delay wont work in some instances so just use steTimeOut
 
 
 </script>
