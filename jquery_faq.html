@@ -17,6 +17,16 @@
     }
 </style>
 <!-------------------------------css ending----------------------------------------------->
+<!--exercise 3-------------------------------------------------------------------------->
+<div>
+    <span id="hidethisdiv">x</span><h1>Would you like to sign up for our newsletter?</h1>
+</div>
+
+
+
+
+
+<!--Exersice 1----------------------------------------------------------------->
 <dl>
     <dt>Click me for: National Park Interesting Facts</dt>
     <dd class="invisible">1. In the National Park System, there are 407 sites covering more than 84 million acres of land.</dd>
@@ -35,6 +45,7 @@
     <dd class="invisible">10. There are 27,000 historic and prehistoric structures preserved within the National Parks System</dd>
 </dl>
 
+<!--exercise 2-------------------------------------------------------------------->
 <button id="style" type="button">Click me for style changes below</button>
 <div>
     <h3 id="park1Heading">park 1</h3>
@@ -83,14 +94,18 @@ $('#style').click(function (e) {
     $('ul li:last-child').css('background-color', 'yellow'); //this works and i am beyond blessed
 });
     $('h3').click(function (e) {
-        $(this).next().css({
+        $(this).next().children().css({ //works without the .children because its chinging the font to the uls, with .children it is chaining the lis and not the ul
             'font-weight': 'bold'
         })
     });
 
-    $('li').click(function (e) {
-        $(this).css('color', 'blue');
-    });
+    // $('li').click(function (e) {
+    //     $(this).css('color', 'pink');   //this works for all of them the below works for the first which is what was asked of me
+    // });
+
+        $('li').click(function (e) {
+            $(this).parent().children().first().css('color', 'pink');
+        });
 
 
 // $('park2Heading').click(function (e) {
@@ -104,6 +119,12 @@ $('#style').click(function (e) {
 //         'font-weight': 'bold'
 //     })
 // });
+
+    //exercise 3 start------------------------------------------------
+    $('#hidethisdiv').click(function (e) {
+        $(this).parent().css('display', 'none');
+    })
+
 
 </script>
 </body>
