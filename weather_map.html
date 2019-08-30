@@ -9,33 +9,44 @@
 <body>
 <h2>Weather Application</h2><hr><br>
 <h3>San Antonio</h3>
-<div class="form-group row d-flex justify-content-between ">
-        <div class="card" style="width: 15rem;">
-            <img src="" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
+<table id="mytable">
+    <tbody>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tbody>
+</table>
 
+<!--<div class="form-group row d-flex justify-content-between ">-->
+<!--        <div class="card" style="width: 15rem;">-->
+<!--            <img src="" class="card-img-top" alt="">-->
+<!--            <div class="card-body">-->
+<!--               <h5 class="card-title">Card title</h5>-->
+<!--                    <p class="card-text">
 
-        <div class="card" style="width: 15rem;">
-            <img src="" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-
-
-        <div class="card" style="width: 15rem;">
-            <img src="" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-</div>
+                         </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!---->
+<!---->
+<!--        <div class="card" style="width: 15rem;">-->
+<!--            <img src="" class="card-img-top" alt="">-->
+<!--            <div class="card-body">-->
+<!--                <h5 class="card-title">Card title</h5>-->
+<!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!---->
+<!---->
+<!--        <div class="card" style="width: 15rem;">-->
+<!--            <img src="" class="card-img-top" alt="">-->
+<!--            <div class="card-body">-->
+<!--                <h5 class="card-title">Card title</h5>-->
+<!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--</div>-->
 
 
 
@@ -48,8 +59,17 @@
 
     $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+ darkSkyKey +"/29.4241,-98.4936").done(function(data) {
         console.log(data);
+        $.each(data, function (index,item) {
+            $('<tr>').append(
+                $('<td>').text(item.currently),
+                $('<td>').text(item.temperature)
+            ).appendTo('#mytable tbody');
+            $('<tr>').append(
+                $('<td>').text(item.currently),
+                $('<td>').text(item.time)
+            ).appendTo('#mytable tbody')
+        })
     });
-
 
 
 
@@ -72,16 +92,16 @@
     // }
 
 
-    mapboxgl.accessToken = mapboxToken;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 10,
-        center: [-98.489615, 29.426827]
-    });
-    new mapboxgl.Marker()
-        .setLngLat([-98.489615, 29.426827])
-        .addTo(map);
+    // mapboxgl.accessToken = mapboxToken;
+    // var map = new mapboxgl.Map({
+    //     container: 'map',
+    //     style: 'mapbox://styles/mapbox/streets-v9',
+    //     zoom: 10,
+    //     center: [-98.489615, 29.426827] //darkskys does it the oppisite
+    // });
+    // new mapboxgl.Marker()
+    //     .setLngLat([-98.489615, 29.426827])
+    //     .addTo(map);
 
 </script>
 </body>
