@@ -138,6 +138,25 @@ $('#style').click(function (e) {
     $('h2').hide(); //justin made this in the css cause he no like the flicker
     $('h2').delay(8000).fadeIn(); //delay wont work in some instances so just use steTimeOut
 
+    //AJAX practice---------------------------------------------------
+    // $.ajax("https://swapi.co/api/films").done(function (data){
+    //     console.log(data);
+    // })
+    // console.log($.ajax("https://swapi.co/api/films"));
+    $.ajax({
+        'url': "https://hookb.in/r1nJ0QqlRxFY1YJeZnmj",
+        'type': "GET",
+        "data": {
+            'search': "cats fam"
+        }
+    }).done(function (data, status, jqXhr) {
+        console.log(data);
+    }).fail(function (jqXhr, status, error) {
+        console.log("request failed");
+    }).always(function () {
+        console.log("request pushed");
+    })
+        //^^^^^^^^ above is how you make a GET request with hookbin and the methods .done/.fail/.always
 
 </script>
 </body>
