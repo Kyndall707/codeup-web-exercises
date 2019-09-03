@@ -2,107 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Weather Map</title>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
+    <title>Weather Project</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
+
+    <style>
+        body{
+            filter: alpha(opacity=50)
+        }
+
+
+        #map {
+            /* the width and height may be set to any size */
+            width: 80%;
+            margin: auto;
+            height: 300px;
+        }
+        h1{
+            text-align: center;
+            font-size: 40px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        #location{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            margin-bottom: 20px;
+        }
+        .weather-item {
+            text-align: center;
+        }
+
+
+    </style>
 </head>
 <body>
-<h2>Weather Application</h2><hr><br>
-<h3>San Antonio</h3>
-<table id="mytable">
-    <tbody>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tbody>
-</table>
-
-<!--<div class="form-group row d-flex justify-content-between ">-->
-<!--        <div class="card" style="width: 15rem;">-->
-<!--            <img src="" class="card-img-top" alt="">-->
-<!--            <div class="card-body">-->
-<!--               <h5 class="card-title">Card title</h5>-->
-<!--                    <p class="card-text">
-
-                         </p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-<!---->
-<!--        <div class="card" style="width: 15rem;">-->
-<!--            <img src="" class="card-img-top" alt="">-->
-<!--            <div class="card-body">-->
-<!--                <h5 class="card-title">Card title</h5>-->
-<!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-<!---->
-<!--        <div class="card" style="width: 15rem;">-->
-<!--            <img src="" class="card-img-top" alt="">-->
-<!--            <div class="card-body">-->
-<!--                <h5 class="card-title">Card title</h5>-->
-<!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--</div>-->
 
 
+<h1>Weather Map Project</h1>
+<!--<button id="btn">Celcius</button>-->
+<div id="location"></div>
 
+<div  class="container">
+    <div class="row "id="date">
+    </div>
 
+</div>
 
-<script src="js/jquery-2.2.4.js"></script>
+<div id="map"></div>
+
+<!--mapbox-->
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js'></script>
-<script>
 
-    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+ darkSkyKey +"/29.4241,-98.4936").done(function(data) {
-        console.log(data);
-        $.each(data, function (index,item) {
-            $('<tr>').append(
-                $('<td>').text(item.currently),
-                $('<td>').text(item.temperature)
-            ).appendTo('#mytable tbody');
-            $('<tr>').append(
-                $('<td>').text(item.currently),
-                $('<td>').text(item.time)
-            ).appendTo('#mytable tbody')
-        })
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!--api-->
+<script>
+    mapboxgl.accessToken = mapboxToken;
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
     });
 
+    var geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    });
 
+    var locationName = "San Antonio";
+    $("#location").html(locationName);
+    geocoder.on('result', function(ev) {
+        console.log(ev);
 
-</script>
-
-<!--------------------------------------------------mapbox script-------------------------------------------------------------------->
-
-<div id='map' style='width: 785px; height: 300px;'></div>
-<script>
-    // function geocode(search, token) {
-    //     var baseUrl = 'https://api.mapbox.com';
-    //     var endPoint = '/geocoding/v5/mapbox.places/';
-    //     return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
-    //         .then(function(res) {
-    //             return res.json();
-    //             // to get all the data from the request, comment out the following three lines...
-    //         }).then(function(data) {
-    //             return data.features[0].center;
-    //         });
-    // }
-
-
-    // mapboxgl.accessToken = mapboxToken;
-    // var map = new mapboxgl.Map({
-    //     container: 'map',
-    //     style: 'mapbox://styles/mapbox/streets-v9',
-    //     zoom: 10,
-    //     center: [-98.489615, 29.426827] //darkskys does it the oppisite
-    // });
-    // new mapboxgl.Marker()
-    //     .setLngLat([-98.489615, 29.426827])
-    //     .addTo(map);
+        locationName= ev.result.place_name;
+        $("#location").html(locationName);
+        getWeather(ev.result.center[1], ev.result.center[0])
+    });
 
 </script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
