@@ -92,6 +92,105 @@
         getWeather(ev.result.center[1], ev.result.center[0])
     });
 
+    map.addControl(geocoder);
+
+    //makes marker draggable and set to san antonio
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-98.4916, 29.4252])
+        .addTo(map);
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+
+        console.log(lngLat);
+        getWeather(lngLat.lat, lngLat.lng);
+        reverseGeocode({lng: -98.4861, lat: 29.4260}, mapboxToken).then(function(results) {
+            // logs the address for The Alamo
+            console.log(results);
+            $("#location").html(results);
+
+        });
+
+
+
+
+    }
+
+
+    marker.on('dragend', onDragEnd);
+
+
+
+    map.on("click",function(e){
+        JSON.stringify(e.point)+"<br/>"+ JSON.stringify(e.lnglat);
+        console.log(e.lngLat.lat)
+        console.log(e.lngLat.lng)
+        getWeather(e.lngLat.lat, e.lngLat.lng)
+
+        if(marker != undefined) marker.remove()
+
+        marker = new mapboxgl.Marker()
+            .setLngLat([e.lngLat.lng, e.lngLat.lat])
+            .addTo(map);
+
+        $("#location").html(e);
+    });
+
+    //search bar submit----------------------------------------------------------
+    $("#submit").click(function(){
+        var latitude = document.getElementById("latitude").value;
+        var longitude= document.getElementById("longitude").value;
+        getWeather(latitude,longitude)
+    });
+
+
+    var icons = [{name:"clear-day", url:"Sun.svg"}, {name:"clear-night",url:"Moon.svg"}, {name:"rain",url:"Cloud-Rain.svg"}, {name:"snow",url:"Cloud-Snow.svg"}, {name:"sleet",url:"Cloud-Hail.svg"}, {name:"wind",url:"Cloud-Wind.svg"},
+        {name:"fog",url:"Cloud-Fog.svg"}, {name:"cloudy",url:"Cloud.svg"}, {name:"partly-cloudy-day",url:"Cloud-Sun.svg"}, {name:"partly-cloudy-night",url:"Cloud-Fog-Moon.svg"}];
+    var userLat= 29.4241;
+    var userLon=-98.4936;
+    getWeather(userLat,userLon);
+
+
+    function getWeather(userLat, userLon) {
+
+        console.log(userLat, userLon)
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/"+ userLat+","+userLon).done(function (data) {
+            console.log(data)
+
+
+            var reports = data.daily.data.slice(0, 3);
+            console.log(reports);
+
+            var weather = '';
+
+            reports.forEach(function (report) {
+                // var chooseIcon=''
+                icons.forEach(function (icon) {
+                    if (report.icon === icon.name) {
+                        report.url = icon.url
+                    }
+                });
+                //to get the correct time and day below--------------------------
+                var dateObject = new Date(report.time * 1000);
+
+                console.log(dateObject);
+
+                weather += "<div class='col-4 weather-item'>"
+                weather +=  "<div class='day bg-info text-white font-weight-bold'>"+dateObject.toDateString() + "</div>" ;
+                weather += "<div class='tempHigh'>Hightest: " +"<span class='temp'>"+ report.temperatureHigh +" &#8457 </span>"+ "</div>" ;
+                weather += "<div class='tempLow'>Lowest: "  + "<span class='temp'>"+ report.temperatureLow +" &#8457 </span>" + "</div>" ;
+                weather += "<div claa='logo'><img src='icon/" + report.url + "'/></div>";
+                weather += "<div class='clouds bg-info text-white font-weight-bold'> SUMMARY </div>";
+                weather += "<div class=' summary'>"+ report.summary +"</div>";
+                weather += "</div>"
+            });
+            $("#date").html(weather);
+
+        })
+    }
+
 </script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
