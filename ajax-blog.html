@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .fa{
+            text-align: right;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<ul class="nav nav-pills bg-info">
+    <li class="nav-item">
+        <a class="nav-link text-white" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" href="#">About</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" href="#">Search</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link  text-white" href="#">Contact</a>
+    </li>
+    <li><i class="fa fa-facebook-square m-2"></i></li>
+    <li><i class="fa fa-twitter-square m-2"></i></li>
+    <li><i class="fa fa-instagram m-2"></i></li>
+    <li><i class="fa fa-youtube-square m-2"></i></li>
+</ul>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Welcome !</h1>
+        <p class="lead">Write something here!</p>
+    </div>
+</div>
+<div id="posts">
+
+</div>
+<button id="refresh">update</button>
+
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    (function() {
+        function loadData() {
+            $.ajax("data/blog.json").done(function (posts) {
+                var data = '';
+                posts.forEach(function (post) {
+                    data += "<h2 class='text-center mt-5 text-success'>" + post.title + "</h2>";
+                    data += "<p class='m-5 '>" + post.content + "</p>";
+                    data += "<p class='text-right mr-5 '>" + post.categories + "</p>";
+                    data += "<p class='text-right mr-5'>" + post.date + "</p>";
+                });
+                $("#posts").html(data);
+            });
+        }
+        loadData();
+        $("#refresh").click(function () {
+            loadData();
+        })
+    })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

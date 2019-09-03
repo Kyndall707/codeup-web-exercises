@@ -15,7 +15,6 @@
 
 
         #map {
-            /* the width and height may be set to any size */
             width: 80%;
             margin: auto;
             height: 300px;
@@ -47,7 +46,6 @@
 
 
 <h1>Weather Map Project</h1>
-<!--<button id="btn">Celcius</button>-->
 <div id="location"></div>
 
 <div  class="container">
@@ -107,7 +105,7 @@
         console.log(lngLat);
         getWeather(lngLat.lat, lngLat.lng);
         reverseGeocode({lng: -98.4861, lat: 29.4260}, mapboxToken).then(function(results) {
-            // logs the address for The Alamo
+            //address for The Alamo-------------------------------
             console.log(results);
             $("#location").html(results);
 
@@ -125,11 +123,11 @@
 
     map.on("click",function(e){
         JSON.stringify(e.point)+"<br/>"+ JSON.stringify(e.lnglat);
-        console.log(e.lngLat.lat)
-        console.log(e.lngLat.lng)
-        getWeather(e.lngLat.lat, e.lngLat.lng)
+        console.log(e.lngLat.lat);
+        console.log(e.lngLat.lng);
+        getWeather(e.lngLat.lat, e.lngLat.lng);
 
-        if(marker != undefined) marker.remove()
+        if(marker != undefined) marker.remove();
 
         marker = new mapboxgl.Marker()
             .setLngLat([e.lngLat.lng, e.lngLat.lat])
@@ -155,9 +153,9 @@
 
     function getWeather(userLat, userLon) {
 
-        console.log(userLat, userLon)
+        console.log(userLat, userLon);
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/"+ userLat+","+userLon).done(function (data) {
-            console.log(data)
+            console.log(data);
 
 
             var reports = data.daily.data.slice(0, 3);
@@ -177,7 +175,7 @@
 
                 console.log(dateObject);
 
-                weather += "<div class='col-4 weather-item'>"
+                weather += "<div class='col-4 weather-item'>";
                 weather +=  "<div class='day bg-info text-white font-weight-bold'>"+dateObject.toDateString() + "</div>" ;
                 weather += "<div class='tempHigh'>Hightest: " +"<span class='temp'>"+ report.temperatureHigh +" &#8457 </span>"+ "</div>" ;
                 weather += "<div class='tempLow'>Lowest: "  + "<span class='temp'>"+ report.temperatureLow +" &#8457 </span>" + "</div>" ;
@@ -192,7 +190,5 @@
     }
 
 </script>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
