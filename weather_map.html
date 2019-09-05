@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Project</title>
+<!--    makes the search bar and the maker go to the correct side of the screen-->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-------adds the three day forcast-------->
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
+<!--------------makes the search bar look pretty-->
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
 
     <style>
         body{
-            filter: alpha(opacity=50)
+            background-image: url("img/black&white.jpg");
         }
 
 
@@ -49,15 +53,12 @@
 <div id="location"></div>
 
 <div  class="container">
-    <div class="row "id="date">
-    </div>
-
+    <div class="row "id="date"></div>
 </div>
 
 <div id="map"></div>
 
 <!--mapbox-->
-<script src="js/mapbox-geocoder-utils.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
 
@@ -110,10 +111,6 @@
             $("#location").html(results);
 
         });
-
-
-
-
     }
 
 
@@ -122,13 +119,17 @@
 
 
     map.on("click",function(e){
-        JSON.stringify(e.point)+"<br/>"+ JSON.stringify(e.lnglat);
-        console.log(e.lngLat.lat);
-        console.log(e.lngLat.lng);
+
+        //updates the maps weather when clicking the map
+        // JSON.stringify(e.point)+"<br/>"+ JSON.stringify(e.lnglat); //idk wtf this is used for????
         getWeather(e.lngLat.lat, e.lngLat.lng);
 
-        if(marker != undefined) marker.remove();
 
+        //need below line cause it'll add new markers eveytime the map is clicked if not
+        if(marker !== undefined) marker.remove();
+
+
+        //adds the marker when the mapped is clicked
         marker = new mapboxgl.Marker()
             .setLngLat([e.lngLat.lng, e.lngLat.lat])
             .addTo(map);
@@ -136,58 +137,61 @@
         $("#location").html(e);
     });
 
-    //search bar submit----------------------------------------------------------
-    $("#submit").click(function(){
-        var latitude = document.getElementById("latitude").value;
-        var longitude= document.getElementById("longitude").value;
-        getWeather(latitude,longitude)
-    });
 
 
-    var icons = [{name:"clear-day", url:"Sun.svg"}, {name:"clear-night",url:"Moon.svg"}, {name:"rain",url:"Cloud-Rain.svg"}, {name:"snow",url:"Cloud-Snow.svg"}, {name:"sleet",url:"Cloud-Hail.svg"}, {name:"wind",url:"Cloud-Wind.svg"},
-        {name:"fog",url:"Cloud-Fog.svg"}, {name:"cloudy",url:"Cloud.svg"}, {name:"partly-cloudy-day",url:"Cloud-Sun.svg"}, {name:"partly-cloudy-night",url:"Cloud-Fog-Moon.svg"}];
+    var icons = [{name:"clear-day",image:"SVG/Sun.svg"}, {name:"clear-night",image:"SVG/Moon.svg"}, {name:"rain",image:"SVG/Cloud-Rain.svg"}, {name:"snow",image:"SVG/Cloud-Snow.svg"}, {name:"sleet",image:"SVG/Cloud-Hail.svg"}, {name:"wind",image:"SVG/Cloud-Wind.svg"},
+        {name:"fog",image:"SVG/Cloud-Fog.svg"}, {name:"cloudy",image:"SVG/Cloud.svg"}, {name:"partly-cloudy-day",image:"SVG/Cloud-Sun.svg"}, {name:"partly-cloudy-night",image:"SVG/Cloud-Fog-Moon.svg"}];
     var userLat= 29.4241;
     var userLon=-98.4936;
     getWeather(userLat,userLon);
 
-
+    //gets the weather from the api
     function getWeather(userLat, userLon) {
 
         console.log(userLat, userLon);
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/"+ userLat+","+userLon).done(function (data) {
             console.log(data);
 
-
+            //how to get only three days to show up
             var reports = data.daily.data.slice(0, 3);
             console.log(reports);
 
             var weather = '';
 
+
             reports.forEach(function (report) {
-                // var chooseIcon=''
                 icons.forEach(function (icon) {
                     if (report.icon === icon.name) {
                         report.url = icon.url
                     }
                 });
-                //to get the correct time and day below--------------------------
+                // to get the correct time and day below--------------------------
                 var dateObject = new Date(report.time * 1000);
 
-                console.log(dateObject);
 
                 weather += "<div class='col-4 weather-item'>";
-                weather +=  "<div class='day bg-info text-white font-weight-bold'>"+dateObject.toDateString() + "</div>" ;
-                weather += "<div class='tempHigh'>Hightest: " +"<span class='temp'>"+ report.temperatureHigh +" &#8457 </span>"+ "</div>" ;
+                weather +=  "<div class='day bg-secondary text-white font-weight-bold'>"+dateObject.toDateString() + "</div>" ;
+                weather += "<div class='tempHigh'>Hightest: " + "<span class='temp'>"+ report.temperatureHigh +" &#8457 </span>"+ "</div>" ;
                 weather += "<div class='tempLow'>Lowest: "  + "<span class='temp'>"+ report.temperatureLow +" &#8457 </span>" + "</div>" ;
-                weather += "<div claa='logo'><img src='icon/" + report.url + "'/></div>";
-                weather += "<div class='clouds bg-info text-white font-weight-bold'> SUMMARY </div>";
+                weather += "<img src='icon/" + report.url + "'/>";
+                weather += "<div class='clouds bg-secondary text-white font-weight-bold'> SUMMARY </div>";
                 weather += "<div class=' summary'>"+ report.summary +"</div>";
                 weather += "</div>"
             });
             $("#date").html(weather);
-
+//three day forcast to show up on the html
         })
     }
+
+    //icons to show up function
+    // function weatherIcon(icon, apiIcon){
+    //     for (var i = 0; i < iconArray.length; i++){
+    //         if (icons[i].name === apiIcon) {
+    //             return icons[i].url
+    //         }
+    //     }
+    // }
+    // "<div class='logo'><img src='icon/" + report.url + "'/></div>";
 
 </script>
 </body>
