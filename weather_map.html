@@ -157,12 +157,13 @@
             console.log(reports);
 
             var weather = '';
-
+//dont take in the entire report array, say one report one forcast, one forcast object, tak in a report and look and icon then do foreach loop
+            //then put that in the html
 
             reports.forEach(function (report) {
                 icons.forEach(function (icon) {
                     if (report.icon === icon.name) {
-                        report.url = icon.url
+                        report.url = icon.image
                     }
                 });
                 // to get the correct time and day below--------------------------
