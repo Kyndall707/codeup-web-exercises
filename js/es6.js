@@ -51,7 +51,13 @@ const languages = ['java', 'php'];
 // });
 
 // refactored:
-users.push([name, email, languages]);
+
+users.push({
+    name,
+    email,
+    languages
+});
+
 
 
 // TODO: replace `var` with `let` in the following variable declarations
@@ -90,10 +96,10 @@ users.forEach(function(user) {
     console.log(name); //returns names in the users array
 
     // TODO: rewrite the assignment below to use template strings
-    developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
+    // developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
 
     // refactored:
-    developers.push(`${name}, 's email is ${email}, ${name}, knows ${languages}`);
+    developers.push(`${name}'s email is ${email} ${name} knows ${languages.join(', ')}`);
 
 });
 
@@ -101,14 +107,14 @@ users.forEach(function(user) {
 let list = '<ul>';
 
 // TODO: rewrite the following loop to use a for..of loop
-developers.forEach(function (developer) {
+// developers.forEach(function (developer) {
 
     // refactored both:
-    for (let developers of developer) {
-        list += `<ul><li> ${developer} <li></ul>`;
+    for (let developer of developers) {
+        list += `<li>${developer}</li>`
     }
-
     // TODO: rewrite the assignment below to use template strings
-    list += '<li>' + developer + '</li>';
-});
+    // list += '<li>' + developer + '</li>';
+// });
 list += '</ul>';
+console.log(list);

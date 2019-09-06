@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $.ajax('https://swapi.co/api/films/').done(function (data) {
+            console.log(data)
+        })
+
+//      $.ajax('https://swapi.co/api/films/').done(function (data) {
+//          console.log(data.results[1].planets)
+// //      });
+//
+
+
+
+        var setting = {
+            method:'post',
+            data:{
+                user:'kyndall',
+                password:'bob',
+                location: 'codeup'
+
+
+            }
+
+        };
+
+        $.ajax('https://hookb.in/8PMO9enJ8DhXgXYxO6aD/?cities=sanantonio&dani=rad',setting).done(function (data) {
+            console.log(data)
+        })
+
+
+
+    })
+
+
+
+
+
+
+</script>
+</body>
+</html>
