@@ -10,15 +10,16 @@
         <h1>My will to live vs. JS Promises</h1>
 
     <script>
-        function getGithubUsernames() {
-            return fetch('https://api.github.com/users', {headers:{'Authorization': gitHubKey}})
-                .then((responce) => {
-                    const user = responce.json()
-
-            });
-        }
-        console.log(getGithubUsernames());
-
+       //get the most recent push not commit
+        fetch('https://api.github.com/users/Kyndall707/events', {headers:{'Authorization': `token ${gitHubKey}`}})
+            .then(function (res) {
+                return res.json()
+            })
+            .then(function(data){
+                console.log(data[0]);
+            }).catch(function(err){
+                console.log(err);
+        })
         // later on...
         //
         // getGithubUsernames().then((usernames) => {
