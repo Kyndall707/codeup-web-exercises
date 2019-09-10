@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promises</title>
+    <script src="js/promises.js"></script>
+    <script src = "js/keys.js"></script>
+</head>
+<body>
+        <h1>My will to live vs. JS Promises</h1>
+
+    <script>
+        function getGithubUsernames() {
+            return fetch('https://api.github.com/users', {headers:{'Authorization': gitHubKey}})
+                .then((responce) => {
+                    const user = responce.json()
+
+            });
+        }
+        console.log(getGithubUsernames());
+
+        // later on...
+        //
+        // getGithubUsernames().then((usernames) => {
+        //     usernames.forEach((username) => {
+        //         // do something with each username
+        //     });
+        // }).catch(error => console.error(error));
+    </script>
+</body>
+</html>
