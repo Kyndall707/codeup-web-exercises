@@ -20,17 +20,13 @@
 //
 
 // practicing fetch
-//
-// function getGithubUsernames() {
-//     return fetch('https://api.github.com/users', {headers:{'Authorization': 'gitHubKey'}})
-//         .then(response => response.json())
-//         .then(users => users.map(user => user.login));
-// }
-//
-// // later on...
-//
-// getGithubUsernames().then((usernames) => {
-//     usernames.forEach((username) => {
-//         // do something with each username
-//     });
-// }).catch(error => console.error(error));
+
+//  fetch('https://api.github.com/users/Kyndall707/events', {headers:{'Authorization': `token ${gitHubKey}`}})
+//             .then(function (res) {
+//                 return res.json()
+//             })
+//             .then(function(data){
+//                 console.log(data[0]);
+//             }).catch(function(err){
+//                 console.log(err);
+//         })
